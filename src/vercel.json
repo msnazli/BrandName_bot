@@ -1,0 +1,14 @@
+{
+       "engines": {
+         "node": "18.x"
+       },
+       "builds": [
+         {
+           "src": "index.html",
+           "use": "@vercel/static-build",
+           "config": {
+             "distDir": "dist"
+           }
+         }
+       ]
+     }
