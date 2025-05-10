@@ -12,7 +12,6 @@ const App = () => {
   const [message, setMessage] = useState({ text: '', type: '' });
   const [theme, setTheme] = useState('light');
 
-  // شناسایی تم تلگرام
   useEffect(() => {
     const TelegramWebApp = window.Telegram?.WebApp;
     if (TelegramWebApp) {
@@ -23,13 +22,11 @@ const App = () => {
     }
   }, []);
 
-  // مدیریت کلمات کلیدی
   const handleKeywordsChange = (e) => {
     const value = e.target.value.replace(/\n/g, ',').replace(/,,/g, ',');
     setKeywords(value);
   };
 
-  // مدیریت چک‌باکس‌ها
   const handleCheckboxChange = (value, current, setState) => {
     if (current.includes(value)) {
       setState(current.filter(item => item !== value));
@@ -38,7 +35,6 @@ const App = () => {
     }
   };
 
-  // ارسال فرم به backend
   const generateNames = async () => {
     if (!industry.trim()) {
       setMessage({ text: 'لطفاً موضوع را وارد کنید.', type: 'error' });
@@ -72,13 +68,11 @@ const App = () => {
     }
   };
 
-  // کپی نام
   const copyName = (name) => {
     navigator.clipboard.writeText(name);
     setMessage({ text: `نام "${name}" کپی شد.`, type: 'success' });
   };
 
-  // بازنشانی فرم
   const resetForm = () => {
     setIndustry('');
     setDescription('');
@@ -94,7 +88,6 @@ const App = () => {
     <div className={`container ${theme}`}>
       <h2>تولید اسم برند</h2>
       <form className="brand-form">
-        {/* موضوع */}
         <div className="form-group">
           <label htmlFor="industry">موضوع خود را وارد کنید</label>
           <input
@@ -106,8 +99,6 @@ const App = () => {
             required
           />
         </div>
-
-        {/* توضیحات */}
         <div className="form-group">
           <label htmlFor="description">توضیحات</label>
           <textarea
@@ -118,8 +109,6 @@ const App = () => {
             rows="4"
           ></textarea>
         </div>
-
-        {/* کلمات کلیدی */}
         <div className="form-group">
           <label htmlFor="keywords">کلمات کلیدی</label>
           <input
@@ -130,8 +119,6 @@ const App = () => {
             placeholder="کلمات را با کاما یا اینتر جدا کنید (مثلاً تکنولوژی، نوآوری)"
           />
         </div>
-
-        {/* ویژگی‌ها */}
         <div className="form-group">
           <label>انتخاب ویژگی</label>
           <div className="checkbox-group">
@@ -149,8 +136,6 @@ const App = () => {
             ))}
           </div>
         </div>
-
-        {/* سبک‌ها */}
         <div className="form-group">
           <label>انتخاب سبک</label>
           <div className="checkbox-group">
@@ -168,8 +153,6 @@ const App = () => {
             ))}
           </div>
         </div>
-
-        {/* زبان نام‌ها */}
         <div className="form-group">
           <label>زبان نام‌ها</label>
           <div className="checkbox-group">
@@ -187,15 +170,11 @@ const App = () => {
             ))}
           </div>
         </div>
-
-        {/* دکمه‌ها */}
         <div className="form-group button-group">
           <button type="button" onClick={generateNames}>تولید نام‌ها</button>
           <button type="button" onClick={resetForm}>بازنشانی</button>
         </div>
       </form>
-
-      {/* نتایج */}
       <div className="results">
         {names.length > 0 ? (
           names.map((name, index) => (
@@ -208,8 +187,6 @@ const App = () => {
           <p>هیچ نامی تولید نشده است.</p>
         )}
       </div>
-
-      {/* پیام */}
       {message.text && (
         <div className={`message ${message.type}`}>
           {message.text}
