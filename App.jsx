@@ -196,4 +196,11 @@ const App = () => {
   );
 };
 
+import { FaCopy } from 'react-icons/fa';
+
+// در بخش result-item:
+<button onClick={() => copyName(name)} className="flex items-center gap-2">
+  <FaCopy /> کپی
+</button>
+
 export default App;

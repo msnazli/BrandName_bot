@@ -7,6 +7,7 @@ body {
   direction: rtl;
   margin: 0;
   padding: 0;
+  @apply bg-gray-100 dark:bg-gray-900;
 }
 
 .container {
@@ -15,21 +16,22 @@ body {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  @apply transition-colors duration-300;
 }
 
 .container.light {
   background-color: #ffffff;
-  color: #333333;
+  color: #000000;
 }
-
 .container.dark {
-  background-color: #1c2526;
-  color: #e0e0e0;
+  background-color: #1a1a1a;
+  color: #ffffff;
 }
 
 h2 {
   text-align: center;
   margin-bottom: 20px;
+  @apply text-2xl font-bold;
 }
 
 .brand-form {
@@ -46,6 +48,7 @@ h2 {
 
 .form-group label {
   font-weight: bold;
+  @apply text-gray-700 dark:text-gray-200;
 }
 
 .form-group input,
@@ -54,12 +57,7 @@ h2 {
   border: 1px solid #ddd;
   border-radius: 5px;
   font-family: IRANSans, sans-serif;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: #007bff;
+  @apply focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white;
 }
 
 .checkbox-group {
@@ -85,16 +83,19 @@ h2 {
   border-radius: 5px;
   cursor: pointer;
   font-family: IRANSans, sans-serif;
+  @apply transition-colors;
 }
 
 .button-group button:first-child {
   background-color: #007bff;
   color: white;
+  @apply hover:bg-blue-700;
 }
 
 .button-group button:last-child {
   background-color: #6c757d;
   color: white;
+  @apply hover:bg-gray-600;
 }
 
 .results {
@@ -103,6 +104,7 @@ h2 {
   border: 1px solid #ddd;
   border-radius: 5px;
   min-height: 100px;
+  @apply dark:border-gray-700;
 }
 
 .result-item {
@@ -111,6 +113,7 @@ h2 {
   align-items: center;
   padding: 10px;
   border-bottom: 1px solid #eee;
+  @apply bg-gray-50 dark:bg-gray-700;
 }
 
 .result-item button {
@@ -120,6 +123,7 @@ h2 {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  @apply hover:bg-blue-700;
 }
 
 .message {
@@ -135,6 +139,17 @@ h2 {
   color: #28a745;
 }
 
+.theme-toggle {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  @apply hover:bg-blue-700;
+}
+
 .animate-in {
   animation: fadeIn 0.3s ease-in;
 }
@@ -142,4 +157,8 @@ h2 {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+.button-group button:first-child {
+  @apply bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700;
 }
