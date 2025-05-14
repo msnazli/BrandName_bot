@@ -1,164 +1,345 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://cdn.fontcdn.ir/Font/Persian/IRANSans/IRANSansWeb.css');
 
 body {
   font-family: IRANSans, sans-serif;
   direction: rtl;
   margin: 0;
   padding: 0;
-  @apply bg-gray-100 dark:bg-gray-900;
-}
-
-.container {
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  @apply transition-colors duration-300;
 }
 
 .container.light {
-  background-color: #ffffff;
-  color: #000000;
+  background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+  min-height: 100vh;
+  transition: all 0.5s ease;
 }
+
 .container.dark {
-  background-color: #1a1a1a;
-  color: #ffffff;
+  background: linear-gradient(135deg, #0f2027 0%, #203a43 100%);
+  min-height: 100vh;
+  transition: all 0.5s ease;
 }
 
-h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  @apply text-2xl font-bold;
+header {
+  padding: 15px 0;
 }
 
-.brand-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.form-group label {
+.display-4 {
+  font-size: 2rem; /* Smaller for Telegram */
   font-weight: bold;
-  @apply text-gray-700 dark:text-gray-200;
+  color: #2c3e50;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.form-group input,
-.form-group textarea {
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+.container.dark .display-4 {
+  color: #ecf0f1;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.text-muted {
+  color: #636e72 !important; /* Ensure color applies */
+}
+
+.container.dark .text-muted {
+  color: #dfe6e9 !important; /* Brighter for dark mode */
+}
+
+.card {
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  background-color: #ffffff;
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.container.dark .card {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.container.dark .card:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.card-title {
+  font-size: 1.5rem; /* Smaller for Telegram */
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.container.dark .card-title {
+  color: #ecf0f1;
+}
+
+.form-control {
   font-family: IRANSans, sans-serif;
-  @apply focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white;
+  border-radius: 10px;
+  border: 2px solid #dfe6e9;
+  padding: 10px;
+  transition: all 0.3s ease;
 }
 
-.checkbox-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
+.form-control:focus {
+  border-color: #0984e3;
+  box-shadow: 0 0 8px rgba(9, 132, 227, 0.3);
 }
 
-.checkbox-group div {
+.container.dark .form-control {
+  background-color: #34495e;
+  border-color: #5a6e82;
+  color: #ecf0f1;
+}
+
+.container.dark .form-control::placeholder {
+  color: #b2bec3;
+}
+
+.container.dark .form-control:focus {
+  border-color: #74b9ff;
+  box-shadow: 0 0 8px rgba(116, 185, 255, 0.3);
+}
+
+.form-check-input {
+  border-radius: 5px;
+}
+
+.form-check-input:checked {
+  background-color: #0984e3;
+  border-color: #0984e3;
+}
+
+.container.dark .form-check-input {
+  background-color: #5a6e82;
+  border-color: #5a6e82;
+}
+
+.container.dark .form-check-input:checked {
+  background-color: #74b9ff;
+  border-color: #74b9ff;
+}
+
+.form-check-label {
+  color: #2c3e50;
+}
+
+.container.dark .form-check-label {
+  color: #dfe6e9;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #0984e3, #0652dd);
+  border: none;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(90deg, #0652dd, #053c9f);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(9, 132, 227, 0.4);
+}
+
+.container.dark .btn-primary {
+  background: linear-gradient(90deg, #74b9ff, #0984e3);
+}
+
+.container.dark .btn-primary:hover {
+  background: linear-gradient(90deg, #0984e3, #0652dd);
+  box-shadow: 0 5px 15px rgba(116, 185, 255, 0.4);
+}
+
+.btn-secondary {
+  background: linear-gradient(90deg, #636e72, #2d3436);
+  border: none;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(90deg, #2d3436, #1a1c1d);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(45, 52, 54, 0.4);
+}
+
+.container.dark .btn-secondary {
+  background: linear-gradient(90deg, #b2bec3, #636e72);
+}
+
+.container.dark .btn-secondary:hover {
+  background: linear-gradient(90deg, #636e72, #2d3436);
+  box-shadow: 0 5px 15px rgba(99, 110, 114, 0.4);
+}
+
+.btn-outline-primary {
+  border-radius: 10px;
+  padding: 6px 14px;
+  font-weight: bold;
+}
+
+.container.dark .btn-outline-primary {
+  border-color: #74b9ff;
+  color: #74b9ff;
+}
+
+.container.dark .btn-outline-primary:hover {
+  background-color: #74b9ff;
+  color: #0f2027;
+}
+
+.keyword-tags {
+  margin-top: 10px;
+}
+
+.keyword-tag {
+  display: inline-flex;
+  align-items: center;
+  background-color: #e9ecef;
+  color: #2c3e50;
+  padding: 6px 12px;
+  border-radius: 20px;
+  margin: 3px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.container.dark .keyword-tag {
+  background-color: #5a6e82;
+  color: #ecf0f1;
+}
+
+.keyword-tag:hover {
+  background-color: #dfe6e9;
+}
+
+.container.dark .keyword-tag:hover {
+  background-color: #6e829a;
+}
+
+.keyword-remove {
+  background: none;
+  border: none;
+  color: #e74c3c;
+  margin-left: 8px;
+  padding: 0;
+  cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 5px;
 }
 
-.button-group {
-  display: flex;
-  gap: 10px;
+.container.dark .keyword-remove {
+  color: #ff8787;
 }
 
-.button-group button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-family: IRANSans, sans-serif;
-  @apply transition-colors;
+.keyword-remove:hover {
+  color: #c0392b;
 }
 
-.button-group button:first-child {
-  background-color: #007bff;
-  color: white;
-  @apply hover:bg-blue-700;
-}
-
-.button-group button:last-child {
-  background-color: #6c757d;
-  color: white;
-  @apply hover:bg-gray-600;
-}
-
-.results {
-  margin-top: 20px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  min-height: 100px;
-  @apply dark:border-gray-700;
+.container.dark .keyword-remove:hover {
+  color: #ff6666;
 }
 
 .result-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  border-bottom: 1px solid #eee;
-  @apply bg-gray-50 dark:bg-gray-700;
+  background-color: #f7f9fb;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  border: 1px solid #dfe6e9;
 }
 
-.result-item button {
-  padding: 5px 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  @apply hover:bg-blue-700;
+.result-item:hover {
+  background-color: #edf2f7;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.message {
-  margin-top: 10px;
-  font-size: 0.9em;
+.container.dark .result-item {
+  background-color: #34495e;
+  color: #ecf0f1;
+  border: 1px solid #5a6e82;
 }
 
-.message.error {
-  color: #dc3545;
+.container.dark .result-item:hover {
+  background-color: #3e5c76;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.message.success {
-  color: #28a745;
+.alert-success {
+  border-radius: 10px;
+  background-color: #d4edda;
+  color: #155724;
 }
 
-.theme-toggle {
-  padding: 8px 16px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-bottom: 20px;
-  @apply hover:bg-blue-700;
+.container.dark .alert-success {
+  background-color: #2a5e38;
+  color: #c3e6cb;
+}
+
+.alert-danger {
+  border-radius: 10px;
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.container.dark .alert-danger {
+  background-color: #5e2a2a;
+  color: #f5c6cb;
+}
+
+footer {
+  padding: 15px;
+  color: #636e72;
+}
+
+.container.dark footer {
+  color: #dfe6e9;
 }
 
 .animate-in {
-  animation: fadeIn 0.3s ease-in;
+  animation: fadeIn 0.5s ease-in;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(15px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-.button-group button:first-child {
-  @apply bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700;
+/* Optimize for Telegram */
+@media (max-width: 576px) {
+  .container {
+    padding: 10px !important;
+  }
+  .display-4 {
+    font-size: 1.8rem;
+  }
+  .card-title {
+    font-size: 1.3rem;
+  }
+  .form-control {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+  .btn-primary, .btn-secondary {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+  .btn-outline-primary {
+    padding: 4px 12px;
+    font-size: 0.85rem;
+  }
+}
+
+.logo {
+  max-width: 120px;
+  transition: transform 0.3s ease;
+}
+.logo:hover {
+  transform: scale(1.05);
 }
